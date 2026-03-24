@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random HTML Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            transition: background-color 0.5s ease;
+        }
+        h1 {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        p {
+            font-size: 1.2em;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgba(255,255,255,0.8);
+        }
+        button:hover {
+            background-color: rgba(255,255,255,1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Random HTML Page</h1>
+    <p id="quote">Click the button to get a random quote!</p>
+    <button onclick="generateRandom()">Generate Random</button>
+
+    <script>
+        const quotes = [
+            "The best way to get started is to quit talking and begin doing.",
+            "Don’t let yesterday take up too much of today.",
+            "It’s not whether you get knocked down, it’s whether you get up.",
+            "If you are working on something exciting, it will keep you motivated.",
+            "Success is not in what you have, but who you are."
+        ];
+
+        function getRandomColor() {
+            return `hsl(${Math.floor(Math.random() * 360)}, 70%, 50%)`;
+        }
+
+        function generateRandom() {
+            // Change background color
+            document.body.style.backgroundColor = getRandomColor();
+            // Change quote
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            document.getElementById("quote").textContent = randomQuote;
+        }
+
+        // Generate random on page load
+        generateRandom();
+    </script>
+</body>
+</html>
